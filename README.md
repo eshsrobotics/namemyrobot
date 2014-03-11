@@ -21,6 +21,111 @@ And run the server:
 
     $ go run server.go
 
+## API Docs
+
+### GET /api/adjectives
+
+#### Action
+
+Gets all existing adjectives.
+
+#### Parameters
+
+None.
+
+#### Response
+
+JSON array of all adjectives.
+
+Example:
+
+``
+[
+  {
+    "id": 1,
+    "createdAt": "2014-03-11T09: 14: 52.16135225Z",
+    "content": "Fluffy",
+    "votes": 0
+  },
+  {
+    "id": 2,
+    "createdAt": "2014-03-11T09: 14: 53.766193996Z",
+    "content": "Dogelike",
+    "votes": 2
+  },
+  {
+    "id": 3,
+    "createdAt": "2014-03-11T09: 14: 53.942152545Z",
+    "content": "Awesome",
+    "votes": 0
+  }
+]
+``
+
+### POST /api/adjectives
+
+#### Action
+
+Creates a new adjective.
+
+#### Parameters
+
+JSON of new adjective.
+
+Example:
+
+``
+{
+  "content": "Fluffy"
+}
+``
+
+#### Response
+
+JSON of new adjective as stored in the database.
+
+Example:
+
+``
+{
+  "id": 1,
+  "createdAt": "2014-03-11T09: 14: 52.16135225Z",
+  "content": "Fluffy",
+  "votes": 0
+},
+``
+
+### PUT /api/adjectives/:id/vote
+
+#### Action
+
+Votes for an adjective
+
+#### Parameters
+
+In URL:
+
+* `:id` - ID of the adjective to vote on.
+
+In request:
+
+None.
+
+#### Response
+
+JSON of adjective voted for.
+
+Example:
+
+``
+{
+  "id": 1,
+  "createdAt": "2014-03-11T09: 14: 52.16135225Z",
+  "content": "Fluffy",
+  "votes": 1
+},
+``
+
 ## License
 
 See [LICENSE](LICENSE).
