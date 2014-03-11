@@ -13,9 +13,9 @@ func main() {
 	m.Use(martini.Static("public"))
 	m.MapTo(models.Dbm, (*gorp.SqlExecutor)(nil))
 
-	m.Get(`/api/first_names`, routes.GetFirstNames)
-	m.Get(`/api/middle_names`, routes.GetLastNames)
-	m.Get(`/api/last_names`, routes.GetLastNames)
+	m.Get(`/api/firstNames`, routes.GetFirstNames)
+	m.Get(`/api/middleNames`, routes.GetLastNames)
+	m.Get(`/api/lastNames`, routes.GetLastNames)
 
 	m.Run()
 }
