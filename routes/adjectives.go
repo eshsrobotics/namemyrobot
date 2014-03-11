@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/codegangsta/martini"
 	"github.com/coopernurse/gorp"
 	"github.com/eshsrobotics/namemyrobot/models"
 )
@@ -47,4 +48,30 @@ func AddAdjective(adjective models.Adjective, w http.ResponseWriter,
 	}
 
 	return http.StatusCreated, string(json)
+}
+
+func VoteAdjective(db gorp.SqlExecutor, params martini.Params) (int, string) {
+	obj, err := db.Get(models.Adjective{}, params["id"])
+	if err != nil {
+		log.Println(err, "Adjective not found")
+		return http.StatusNotFound, ""
+	}
+
+	adjective := obj.(*models.Adjective)
+
+	adjective.Votes++
+
+	_, err = db.Update(adjective)
+	if err != nil {
+		log.Println(err, "Error updating adjective")
+		return http.StatusInternalServerError, ""
+	}
+
+	json, err := json.Marshal(adjective)
+	if err != nil {
+		log.Println(err, "Error marshalling adjective to JSON")
+		return http.StatusInternalServerError, ""
+	}
+
+	return http.StatusOK, string(json)
 }

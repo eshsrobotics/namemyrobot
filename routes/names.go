@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/codegangsta/martini"
 	"github.com/coopernurse/gorp"
 	"github.com/eshsrobotics/namemyrobot/models"
 )
@@ -47,4 +48,30 @@ func AddName(name models.Name, w http.ResponseWriter,
 	}
 
 	return http.StatusCreated, string(json)
+}
+
+func VoteName(db gorp.SqlExecutor, params martini.Params) (int, string) {
+	obj, err := db.Get(models.Name{}, params["id"])
+	if err != nil {
+		log.Println(err, "Name not found")
+		return http.StatusNotFound, ""
+	}
+
+	name := obj.(*models.Name)
+
+	name.Votes++
+
+	_, err = db.Update(name)
+	if err != nil {
+		log.Println(err, "Error updating name")
+		return http.StatusInternalServerError, ""
+	}
+
+	json, err := json.Marshal(name)
+	if err != nil {
+		log.Println(err, "Error marshalling name to JSON")
+		return http.StatusInternalServerError, ""
+	}
+
+	return http.StatusOK, string(json)
 }
