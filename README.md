@@ -39,7 +39,7 @@ JSON array of all adjectives.
 
 Example:
 
-``
+```
 [
   {
     "id": 1,
@@ -60,7 +60,7 @@ Example:
     "votes": 0
   }
 ]
-``
+```
 
 ### POST /api/adjectives
 
@@ -74,11 +74,11 @@ JSON of new adjective.
 
 Example:
 
-``
+```
 {
   "content": "Fluffy"
 }
-``
+```
 
 #### Response
 
@@ -86,14 +86,14 @@ JSON of new adjective as stored in the database.
 
 Example:
 
-``
+```
 {
   "id": 1,
   "createdAt": "2014-03-11T09: 14: 52.16135225Z",
   "content": "Fluffy",
   "votes": 0
 },
-``
+```
 
 ### PUT /api/adjectives/:id/vote
 
@@ -117,14 +117,14 @@ JSON of adjective voted for.
 
 Example:
 
-``
+```
 {
   "id": 1,
   "createdAt": "2014-03-11T09: 14: 52.16135225Z",
   "content": "Fluffy",
   "votes": 1
 },
-``
+```
 
 ## License
 
