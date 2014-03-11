@@ -126,6 +126,109 @@ Example:
 },
 ```
 
+### GET /api/names
+
+#### Action
+
+Gets all existing names.
+
+#### Parameters
+
+None.
+
+#### Response
+
+JSON array of all names.
+
+Example:
+
+```
+[
+  {
+    "id": 1,
+    "createdAt": "2014-03-11T09: 14: 52.16135225Z",
+    "content": "Spud",
+    "votes": 0
+  },
+  {
+    "id": 2,
+    "createdAt": "2014-03-11T09: 14: 53.766193996Z",
+    "content": "Jimmy",
+    "votes": 2
+  },
+  {
+    "id": 3,
+    "createdAt": "2014-03-11T09: 14: 53.942152545Z",
+    "content": "LabVIEW",
+    "votes": 0
+  }
+]
+```
+
+### POST /api/names
+
+#### Action
+
+Creates a new name.
+
+#### Parameters
+
+JSON of new name.
+
+Example:
+
+```
+{
+  "content": "LabVIEW"
+}
+```
+
+#### Response
+
+JSON of new name as stored in the database.
+
+Example:
+
+```
+{
+  "id": 1,
+  "createdAt": "2014-03-11T09: 14: 52.16135225Z",
+  "content": "LabVIEW",
+  "votes": 0
+},
+```
+
+### PUT /api/names/:id/vote
+
+#### Action
+
+Votes for an name
+
+#### Parameters
+
+In URL:
+
+* `:id` - ID of the name to vote on.
+
+In request:
+
+None.
+
+#### Response
+
+JSON of name voted for.
+
+Example:
+
+```
+{
+  "id": 1,
+  "createdAt": "2014-03-11T09: 14: 52.16135225Z",
+  "content": "LabVIEW",
+  "votes": 1
+},
+```
+
 ## License
 
 See [LICENSE](LICENSE).
