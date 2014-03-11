@@ -2,6 +2,7 @@ package models
 
 import (
 	"database/sql"
+	"log"
 	"os"
 
 	"github.com/coopernurse/gorp"
@@ -13,6 +14,13 @@ var Dbm *gorp.DbMap
 
 func init() {
 	Dbm = newDbMap()
+
+	Dbm.AddTable(Adjective{}).SetKeys(true, "Id")
+	Dbm.AddTable(Name{}).SetKeys(true, "Id")
+
+	if err := Dbm.CreateTablesIfNotExists(); err != nil {
+		log.Fatalln(err, "Create tables failed")
+	}
 }
 
 func newDbMap() *gorp.DbMap {
