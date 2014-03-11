@@ -78,14 +78,23 @@
           <input type="search" ng-model="q" placeholder="filter names..." />
           <ul>
             <li ng-repeat="name in first-names | filter:q">
-              [{{$index + 1}}] {{first-names.votes}} {{first-names.name}} 
+              [{{$index + 1}}] {{first-names.votes}} {{first-names.content}} 
             </li>
           </ul>
         </div>
       </div>
 
       <div class="large-6 columns highlight">
-        Witty subheader goes here. Lorem ipsum for now. 1+2={{1+2}}
+        <div ng-init="last-names = [{"id": 1,"createdAt": "2014-03-11T09: 14: 52.16135225Z","content": "Fluffy","votes": 0},{"id": 2,"createdAt": "2014-03-11T09: 14: 53.766193996Z","content": "Dogelike","votes": 2},{"id": 3,"createdAt": "2014-03-11T09: 14: 53.942152545Z","content": "Awesome","votes": 0}]">
+
+          There are {{last-names.length}} entrees. Search for one:
+          <input type="search" ng-model="q" placeholder="filter names..." />
+          <ul>
+            <li ng-repeat="name in last-names | filter:q">
+              [{{$index + 1}}] {{last-names.votes}} {{last-names.content}} 
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- End Content -->
