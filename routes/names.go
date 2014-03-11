@@ -11,36 +11,36 @@ import (
 	"github.com/eshsrobotics/namemyrobot/models"
 )
 
-func GetLastNames(db gorp.SqlExecutor) (int, string) {
-	var lastNames []models.FirstName
-	_, err := db.Select(&lastNames, "select * from last_names")
+func GetNames(db gorp.SqlExecutor) (int, string) {
+	var names []models.Name
+	_, err := db.Select(&names, "select * from name order by id")
 	if err != nil {
-		log.Println(err, "Error selecting last names from database")
+		log.Println(err, "Error selecting names from database")
 		return http.StatusInternalServerError, ""
 	}
 
-	json, err := json.Marshal(lastNames)
+	json, err := json.Marshal(names)
 	if err != nil {
-		log.Println(err, "Error marshaling last names JSON")
+		log.Println(err, "Error marshaling names JSON")
 		return http.StatusInternalServerError, ""
 	}
 
 	return http.StatusOK, string(json)
 }
 
-func AddLastName(lastName models.LastName, w http.ResponseWriter,
+func AddName(name models.Name, w http.ResponseWriter,
 	db gorp.SqlExecutor) (int, string) {
 
-	lastName.CreatedAt = time.Now()
+	name.CreatedAt = time.Now()
 
-	if err := db.Insert(&lastName); err != nil {
+	if err := db.Insert(&name); err != nil {
 		log.Println(err, "Insert failed")
 		return http.StatusConflict, ""
 	}
 
-	w.Header().Set("Location", fmt.Sprintf("/api/lastNames/%d", lastName.Id))
+	w.Header().Set("Location", fmt.Sprintf("/api/names/%d", name.Id))
 
-	json, err := json.Marshal(lastName)
+	json, err := json.Marshal(name)
 	if err != nil {
 		log.Println(err, "Error marshaling inserted last name")
 		return http.StatusInternalServerError, ""

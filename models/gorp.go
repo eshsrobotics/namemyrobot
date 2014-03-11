@@ -15,9 +15,8 @@ var Dbm *gorp.DbMap
 func init() {
 	Dbm = newDbMap()
 
-	Dbm.AddTableWithName(FirstName{}, "first_names").SetKeys(true, "Id")
-	Dbm.AddTableWithName(MiddleName{}, "middle_names").SetKeys(true, "Id")
-	Dbm.AddTableWithName(LastName{}, "last_names").SetKeys(true, "Id")
+	Dbm.AddTable(Adjective{}).SetKeys(true, "Id")
+	Dbm.AddTable(Name{}).SetKeys(true, "Id")
 
 	if err := Dbm.CreateTablesIfNotExists(); err != nil {
 		log.Fatalln(err, "Create tables failed")

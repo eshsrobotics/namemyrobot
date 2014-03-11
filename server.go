@@ -14,17 +14,12 @@ func main() {
 	m.Use(martini.Static("public"))
 	m.MapTo(models.Dbm, (*gorp.SqlExecutor)(nil))
 
-	m.Get(`/api/firstNames`, routes.GetFirstNames)
-	m.Post(`/api/firstNames`, binding.Bind(models.FirstName{}),
-		routes.AddFirstName)
+	m.Get(`/api/adjectives`, routes.GetAdjectives)
+	m.Post(`/api/adjectives`, binding.Bind(models.Adjective{}),
+		routes.AddAdjective)
 
-	m.Get(`/api/middleNames`, routes.GetLastNames)
-	m.Post(`/api/middleNames`, binding.Bind(models.MiddleName{}),
-		routes.AddMiddleName)
-
-	m.Get(`/api/lastNames`, routes.GetLastNames)
-	m.Post(`/api/lastNames`, binding.Bind(models.LastName{}),
-		routes.AddLastName)
+	m.Get(`/api/names`, routes.GetNames)
+	m.Post(`/api/names`, binding.Bind(models.Name{}), routes.AddName)
 
 	m.Run()
 }
