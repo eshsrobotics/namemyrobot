@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Hello fellow developer shibe! This website was made with <3 by Team 1759's programming team! Follow us @ https://github.com/eshsrobotics--> 
-<html lang="en" ng-app>
+<html lang="en" ng-app="foobar">
   <head>
     <title>Name My Robot!</title>
 
@@ -34,49 +34,7 @@
     </ul>
  
     <section class="top-bar-section">
-      <!-- Right Nav Section 
-      <ul class="right">
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">Main Item 1</a>
-          <ul class="dropdown">
-            <li><label>Section Name</label></li>
-            <li class="has-dropdown">
-              <a href="#" class="">Has Dropdown, Level 1</a>
-              <ul class="dropdown">
-                <li><a href="#">Dropdown Options</a></li>
-                <li><a href="#">Dropdown Options</a></li>
-                <li><a href="#">Level 2</a></li>
-                <li><a href="#">Subdropdown Option</a></li>
-                <li><a href="#">Subdropdown Option</a></li>
-                <li><a href="#">Subdropdown Option</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li class="divider"></li>
-            <li><label>Section Name</label></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li class="divider"></li>
-            <li><a href="#">See all →</a></li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-        <li><a href="#">Main Item 2</a></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">Main Item 3</a>
-          <ul class="dropdown">
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li class="divider"></li>
-            <li><a href="#">See all →</a></li>
-          </ul>
-        </li>
-      </ul> -->
+
     </section>
   </nav>
  
@@ -111,6 +69,25 @@
         </div>
       </div>
 
+      <!--Names-->
+
+      <div class="large-6 columns highlight">
+        <div ng-init="first-names = [{"id": 1,"createdAt": "2014-03-11T09: 14: 52.16135225Z","content": "Fluffy","votes": 0},{"id": 2,"createdAt": "2014-03-11T09: 14: 53.766193996Z","content": "Dogelike","votes": 2},{"id": 3,"createdAt": "2014-03-11T09: 14: 53.942152545Z","content": "Awesome","votes": 0}]">
+
+          There are {{first-names.length}} entrees. Search for one:
+          <input type="search" ng-model="q" placeholder="filter names..." />
+          <ul>
+            <li ng-repeat="name in first-names | filter:q">
+              [{{$index + 1}}] {{first-names.votes}} {{first-names.name}} 
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="large-6 columns highlight">
+        Witty subheader goes here. Lorem ipsum for now. 1+2={{1+2}}
+      </div>
+
       <!-- End Content -->
   
   
@@ -122,15 +99,6 @@
   
                 <div class="large-6 columns">
                     <p>© 2014 FRC Team 1759</p>
-                </div>
-  
-                <div class="large-6 small-12 columns">
-                    <ul class="inline-list right">
-                      <li><a href="#">Link 1</a></li>
-                      <li><a href="#">Link 2</a></li>
-                      <li><a href="#">Link 3</a></li>
-                      <li><a href="#">Link 4</a></li>
-                    </ul>
                 </div>
   
               </div>
