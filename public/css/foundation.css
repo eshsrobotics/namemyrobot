@@ -1,3 +1,16 @@
+/*Custom Styles*/
+
+.highlight {
+  background-color: #eee;
+  border: 1px solid #cccccc;
+  font-family: "Consolas", "Liberation Mono", Courier, monospace;
+  color: #000;
+  padding: 0.8em 0 0.8em 0.8em;
+  margin-bottom: 1.3em;
+  overflow: auto; }
+
+/*Default Foundation*/
+
 meta.foundation-version {
   font-family: "/5.2.0/"; }
 
