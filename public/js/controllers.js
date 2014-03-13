@@ -14,7 +14,7 @@ angularApp.controller('FirstNameListCtrl', function ($scope) {
 
 
 angularApp.controller('LastNameListCtrl', function ($scope) {
-	$scope.firstnames = [
+	$scope.lastnames = [
     {'name': 'Doge',
      'votes': '12'},
     {'name': 'Dogezilla™',

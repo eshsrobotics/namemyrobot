@@ -57,7 +57,7 @@
         <div class="large-12 columns">
 
           <h1>NameMyRobot.com</h1>
-          <h3 class="subheader">Witty subheader goes here. Lorem ipsum for now. 1+2={{1+2}}</h3>
+          <h3 class="subheader">Witty subheader goes here. Lorem ipsum for now. 1+2={{1+2}} yay angular works!</h3>
 
         </div>
       </div>
@@ -79,20 +79,23 @@
       <!--First Name first-->
 
       <div class="large-6 columns highlight" >
-
         <ol ng-controller="FirstNameListCtrl">
           <li ng-repeat="firstname in firstnames">
             <strong>{{firstname.name}}</strong>
             <p><em>{{firstname.votes}}</em></p>
           </li>
         </ol>
-
       </div>
 
       <!--Last Name-->
 
       <div class="large-6 columns highlight" >
-
+        <ol ng-controller="LastNameListCtrl">
+          <li ng-repeat="lastname in lastnames">
+            <strong>{{lastname.name}}</strong>
+            <p><em>{{lastname.votes}}</em></p>
+          </li>
+        </ol>
       </div>
 
       <!-- End Content -->
