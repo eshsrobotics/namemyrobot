@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Hello fellow developer shibe! This website was made with <3 by Team 1759's programming team! Follow us @ https://github.com/eshsrobotics--> 
-<html lang="en" ng-app=>
+<html lang="en" ng-app="angularApp">
   <head>
     <title>Name My Robot!</title>
 
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/foundation.css">
     <script type="text/javascript" src="js/vendor/jquery.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-    <script type="text/javascript" src="js/FirstNameListCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
@@ -73,13 +73,25 @@
         </div>
       </div>
 
+
       <!--Names-->
 
-      <div class="large-6 columns highlight" ng-controller="FirstNameListCtrl">
-        {{totalFirstNames}}
+      <!--First Name first-->
+
+      <div class="large-6 columns highlight" >
+
+        <ol ng-controller="FirstNameListCtrl">
+          <li ng-repeat="firstname in firstnames">
+            <strong>{{firstname.name}}</strong>
+            <p><em>{{firstname.votes}}</em></p>
+          </li>
+        </ol>
+
       </div>
 
-      <div class="large-6 columns highlight" ng-controller="LastNameListCtrl">
+      <!--Last Name-->
+
+      <div class="large-6 columns highlight" >
 
       </div>
 
