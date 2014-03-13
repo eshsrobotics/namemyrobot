@@ -29,7 +29,7 @@
       <!-- Title Area -->
       <li class="name">
         <h1>
-          <a href="#">
+          <a href="#"><img src="img/potato.png" style="height:1em;">
             Name My Robot!
           </a>
         </h1>
@@ -66,10 +66,7 @@
 
       <div class="row">
         <div class="large-12 columns highlight">
-
-          <h3 class="subheader"><strong>Witty subheader goes here. Lorem ipsum for now. 1+2={{1+2}}</strong></h3>
           <p class="subheader">Hello! We're <a href="http://eshsrobotics.com/">FIRST Team 1759</a>, and after being inspired by <a href="http://www.namemydaughter.com/">NameMyDaughter.com</a>, we've decided to let the internet name our robot!</p>
-
         </div>
       </div>
 
@@ -79,10 +76,11 @@
       <!--First Name first-->
 
       <div class="large-6 columns highlight" >
+
         <ol ng-controller="FirstNameListCtrl">
           <li ng-repeat="firstname in firstnames">
-            <strong>{{firstname.name}}</strong>
-            <p><em>{{firstname.votes}}</em></p>
+            <p><em>{{firstname.name}}
+            {{firstname.votes}}</em></p>
           </li>
         </ol>
       </div>
@@ -92,8 +90,8 @@
       <div class="large-6 columns highlight" >
         <ol ng-controller="LastNameListCtrl">
           <li ng-repeat="lastname in lastnames">
-            <strong>{{lastname.name}}</strong>
-            <p><em>{{lastname.votes}}</em></p>
+            <p><strong>{{lastname.name}}</strong>
+            <em>{{lastname.votes}}</em></p>
           </li>
         </ol>
       </div>
